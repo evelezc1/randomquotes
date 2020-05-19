@@ -16,10 +16,10 @@ class Controller extends BaseController
 
     public function index1()
     {
-        $totalQuotes = (count(Controller::$quotes));
+                $totalQuotes = (count(Controller::$quotes));
         $randomNumber = (rand(0,($totalQuotes-1)));
         $randomQuote = Controller::$quotes[$randomNumber];
-        return response()->json(['quote' => $randomQuote]);
+        return response()->json(['quote' => $randomQuote, 'server_ip' => gethostbyname(gethostname())]);
     }
     
 }
